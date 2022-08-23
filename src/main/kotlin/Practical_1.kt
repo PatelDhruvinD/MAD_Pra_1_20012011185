@@ -1,9 +1,22 @@
+import com.sun.xml.internal.bind.v2.util.CollisionCheckStack
+class Car(var brand: String, var owner: String, var mile: Int, var Price: Int, var CPrice: Int) {
+ init{
+  println("Class and object are created")
+ }
+ fun info() {
+  println("Brand: "+brand)
+  println("Owner of Car: "+owner)
+  println("Mile Drive: "+mile)
+  println("Car's actule price: "+Price)
+  println("Car's Current Price: "+CPrice)
+ }
+}
 fun Fact(no: Int):Long{
     return if(no==1) no.toLong()        // terminate condition
     else no*Fact(no-1)
 }
 fun main() {
-   println("Hello World!")
+    println("Hello World!")
 
     println("********** Practical = 1_1 **********")
 
@@ -134,6 +147,238 @@ fun main() {
     println("Factorial of $No is: "+Fact(No))
 
     println("********** Practical = 1_8 **********")
-    println("********** Practical = 1_9 **********")
+    val myArray1 = arrayOf<String>("Malay","Dhrumil","Hilag","Vidhi","Radhe")
+    var myArray2 = arrayOf<Int>(1,10,4,6,15)
+    var myArray3 = arrayOf(5,10,20,12,15)
+    var myArray4= arrayOf(1,10,4, "Ajay","Prakesh")
+    var myArray5: IntArray = intArrayOf(5,10,20,12,15)
 
+    println("Created Array-1 using arrayOf<String>")
+    for(element in myArray1){
+        print(element)
+        print(" ")
+    }
+    println()
+    println("Created Array-2 using arrayOf<INT>")
+    for(element in myArray2){
+        print(element)
+        print(" ")
+    }
+    println()
+    println("Created Array-3 using arrayOf()")
+    for(element in myArray3){
+        print(element)
+        print(" ")
+    }
+    println()
+    println("Created Array-4 using arrayOf(int and string)")
+    for(element in myArray4){
+        print(element)
+        print(" ")
+    }
+    println()
+    println("Created Array-5 using intArrayOf()")
+    for(element in myArray5){
+        print(element)
+        print(" ")
+    }
+    val matrix = arrayOf(
+        intArrayOf(3, 7),
+        intArrayOf(0, 1),
+        intArrayOf(2, 4)
+    )
+    println()
+    println("Created 2D Array-6 and use .contentDeepToString()")
+    println(matrix.contentDeepToString())
+
+    print("Please enter size of array:")
+    val input1 = readLine()!!
+    val array_size: Int = input1.toInt()
+    val myarray6 = Array<Int>(array_size) { 0 }
+    val myarray7 = myarray6
+    println("Please enter elements")
+    for (i in 0..array_size - 1) {
+        print("arr[$i]=")
+        myarray6.set(i, readLine()!!.toInt())
+    }
+    var temp: Int
+    for (i in 0..array_size - 1) {
+        for (j in 0..array_size - 1) {
+            if (myarray6[i] <= myarray6[j]) {
+                temp = myarray6[i]
+                myarray6[i] = myarray6[j]
+                myarray6[j] = temp
+            }
+        }
+    }
+    println("#Method 1 - Without using inbuilt function")
+    println("----Sorted Array---- ")
+    for (i in 0..array_size - 1) {
+        println("arr[$i]=" + myarray6[i])
+    }
+    println("#Method 2 - Using inbuilt function")
+    println("----Sorted Array---- ")
+    myarray7.sort()
+    for (i in 0..array_size - 1) {
+        println("arr[$i]=" + myarray7[i])
+    }
+
+
+
+     println("********** Practical = 1_9 **********")
+      val numArray = doubleArrayOf(23.0, 9.5, 50.0, 90.0, 55.5, 43.7, 5.7, -66.5)
+      var largest = numArray[0]
+      for (num in numArray) {
+        if (largest < num) {
+            largest = num
+        }
+      }
+      println("Largest element = %.2f".format(largest))
+
+
+     println("********** Practical = 1_10 **********")
+     val car1 = Car("BMW", "Malay", 50000,5000000,4500000)
+     val car2 = Car("Hyundai", "Dhrumil",50000, 1000000,8000000)
+     val car3 = Car("Maruti Suzuki", "Hilag",70000,1000000,9000000)
+
+     println("")
+     println("Car 1 information")
+     car1.info()
+     println("")
+     println("Car 2 information")
+     car2.info()
+     println("")
+     println("Car 3 information")
+     car3.info()
+
+
+    println("********** Practical = 1_11 **********")
+    println("Please enter the elements in Array A")
+    val A = Array(3) { IntArray(3) }
+    val B = Array(3) { IntArray(3) }
+    val C = Array(3) { IntArray(3) }
+    val D = Array(3) { IntArray(3) }
+    for (i in 0..2) {
+        for (j in 0..2) {
+            print("A[$i][$j]=")
+            A[i][j] = readLine()!!.toInt()
+        }
+    }
+    println("---------------------------------")
+    println("Please enter the elements in Array B")
+    for (i in 0..2) {
+        for (j in 0..2) {
+            print("B[$i][$j]=")
+            B[i][j] = readLine()!!.toInt()
+        }
+    }
+    for (i in 0..2) {
+        for (j in 0..2) {
+            C[i][j] = A[i][j] + B[i][j]
+        }
+    }
+    for (i in 0..2) {
+        for (j in 0..2) {
+            D[i][j] = A[i][j] - B[i][j]
+        }
+    }
+    println("-----------------Addition----------------------")
+    for (i in 0..2) {
+        for (j in 0..2) {
+            print(A[i][j])
+            print(" ")
+        }
+        print("\n")
+    }
+    println("  + ")
+    for (i in 0..2) {
+        for (j in 0..2) {
+            print(B[i][j])
+            print(" ")
+        }
+        print("\n")
+    }
+    println("------")
+    println("------")
+    for (i in 0..2) {
+        for (j in 0..2) {
+            print(C[i][j])
+            print(" ")
+        }
+        print("\n")
+    }
+    println("-----------------Subtraction----------------------")
+    for (i in 0..2) {
+        for (j in 0..2) {
+            print(A[i][j])
+            print(" ")
+        }
+        print("\n")
+    }
+    println("  -  ")
+    for (i in 0..2)
+    {
+        for (j in 0..2) {
+            print(B[i][j])
+            print(" ")
+        }
+        print("\n")
+    }
+    println("------")
+    println("------")
+    for (i in 0..2) {
+        for (j in 0..2) {
+            print(D[i][j])
+            print(" ")
+        }
+        print("\n")
+    }
+
+
+    println("-----------------Multiplication----------------------")
+    val r1 = 2
+    val c1 = 3
+    val r2 = 3
+    val c2 = 2
+    val firstMatrix = arrayOf(intArrayOf(3, -2, 5), intArrayOf(3, 0, 4))
+    val secondMatrix = arrayOf(intArrayOf(2, 3), intArrayOf(-9, 0), intArrayOf(0, 4))
+
+    // Mutliplying Two matrices
+    val product = Array(r1) { IntArray(c2) }
+    for (i in 0..r1 - 1) {
+        for (j in 0..c2 - 1) {
+            for (k in 0..c1 - 1) {
+                product[i][j] += firstMatrix[i][k] * secondMatrix[k][j]
+            }
+        }
+    }
+
+    // Displaying the result
+    for (row in firstMatrix) {
+        for (column in row) {
+            print("$column    ")
+        }
+        println()
+    }
+    println("  *  ")
+    for (row in secondMatrix) {
+        for (column in row) {
+            print("$column    ")
+        }
+        println()
+    }
+
+    println("------")
+    println("------")
+    println("Product of two matrices is: ")
+
+    for (row in product) {
+        for (column in row) {
+            print("$column    ")
+        }
+        println()
+    }
 }
+
+
+
